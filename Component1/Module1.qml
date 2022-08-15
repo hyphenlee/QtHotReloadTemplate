@@ -5,9 +5,9 @@ Item {
     Rectangle{
         width: 100
         height: 100
-        color: 'yellow'
+        color: 'red'
         Button{
-            text: '34343'
+            text: '24fd3'
             onClicked: {
 
             }

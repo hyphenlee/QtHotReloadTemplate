@@ -7,12 +7,7 @@
 #include"qml_engine.h"
 int main(int argc, char *argv[])
 {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-#endif
-
     QGuiApplication app(argc, argv);
-
     QTranslator translator;
     const QStringList uiLanguages = QLocale::system().uiLanguages();
     for (const QString &locale : uiLanguages) {
@@ -24,8 +19,8 @@ int main(int argc, char *argv[])
     }
 
     QmlEngine engine;
-//    const QUrl url(QStringLiteral("qrc:/main.qml"));
-    const QUrl url(QStringLiteral("file:///../QtHotReloadTemplate/main.qml"));
+    //const QUrl url(QStringLiteral("qrc:/main.qml"));
+    const QUrl url=QUrl::fromLocalFile(QStringLiteral("./main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl) {
         if (!obj && url == objUrl)

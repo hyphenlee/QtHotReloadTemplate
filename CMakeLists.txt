@@ -11,8 +11,7 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(QT NAMES Qt6 Qt5 COMPONENTS Core Quick Widgets LinguistTools REQUIRED)
-find_package(Qt6 COMPONENTS Core Quick Widgets LinguistTools REQUIRED)
+find_package(Qt6 COMPONENTS Core Quick Widgets LinguistTools Quick3D REQUIRED)
 
 set(TS_FILES QtHotReloadTemplate_zh_CN.ts)
 
@@ -36,7 +35,7 @@ set(PROJECT_SOURCES
 target_compile_definitions(QtHotReloadTemplate
   PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
 target_link_libraries(QtHotReloadTemplate
-  PRIVATE Qt6::Core Qt6::Quick  Qt6::Widgets Qt6::Qml)
+  PRIVATE Qt6::Core Qt6::Quick  Qt6::Widgets Qt6::Qml Qt6::Quick3D)
 
 set_target_properties(QtHotReloadTemplate PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
@@ -51,6 +50,7 @@ add_custom_command(
         $<TARGET_FILE:Qt6::Qml>
         $<TARGET_FILE:Qt6::Gui>
         $<TARGET_FILE:Qt6::Network>
+        $<TARGET_FILE:Qt6::Quick3D>
         $<TARGET_FILE_DIR:QtHotReloadTemplate>
 )
 qt_import_qml_plugins(QtHotReloadTemplate)
