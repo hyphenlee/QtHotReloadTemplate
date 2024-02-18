@@ -14,5 +14,7 @@ Item {
 
         }
     }
-
+    Component.onDestruction: {
+        console.log("destruct module2")
+    }
 }

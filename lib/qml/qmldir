@@ -1,0 +1,2 @@
+module HotReload
+HotWindow 1.0 HotWindow.qml

@@ -2,14 +2,18 @@ import QtQuick 2.0
 import QtQuick.Controls 2.12
 
 Item {
+    Text{
+        text:'module one'
+    }
     Rectangle{
-        width: 100
-        height: 100
-        color: 'red'
+        id:'rect'
+        width: 200
+        height: 200
+        color: 'yellow'
         Button{
-            text: '24fd3'
+            text: 'hello'
             onClicked: {
-
+                rect.color='yellow'
             }
 
         }
