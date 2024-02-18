@@ -1,4 +1,4 @@
-qt_add_library(qhotreload
+qt_add_library(qhotreload STATIC
   file_watcher.h
   file_watcher.cpp
   interceptor.h
