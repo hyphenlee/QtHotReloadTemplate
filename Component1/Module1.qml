@@ -9,16 +9,19 @@ Item {
         id:'rect'
         width: 200
         height: 200
-        color: 'yellow'
+        color: 'green'
         Button{
-            text: 'hello'
-            onClicked: {
+            text: "hello" 
+            onClicked: { 
                 rect.color='yellow'
             }
-
         }
-    }
+    } 
+    
 Component.onDestruction: {
     console.log("destruct module1")
 }
+Component.onCompleted:{
+        console.log("create module1")
+    }
 }
